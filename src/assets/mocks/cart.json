@@ -1,0 +1,6 @@
+{
+  "foods": [
+    { "id": 100, "name": "pizza", "vegetarian": false },
+    { "id": 102, "name": "burger", "vegetarian": false }
+  ]
+}

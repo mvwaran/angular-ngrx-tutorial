@@ -1,0 +1,5 @@
+<div class="food">
+  <h4>{{ food.name | uppercase }}</h4>
+  <button class="select" *ngIf="!isSelected" (click)="selectItem()">Add to Cart</button>
+  <button class="remove" *ngIf="isSelected" (click)="removeItem()">Remove Cart</button>
+</div>

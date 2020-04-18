@@ -1,0 +1,14 @@
+<div>
+    <h1>Selected Foods</h1>
+    <p *ngIf="foods.length === 0">
+        <mark>Cart is empty</mark>
+    </p>
+    <ul>
+        <li *ngFor="let food of foods">
+            <mark>{{ food.name | uppercase }}</mark> ({{ (food.vegetarian) ? 'VEG': 'Non-VEG' }})
+        </li>
+    </ul>
+</div>
+<div class="text-center">
+    <a routerLink="/dashboard/food">Go to Food Section</a>
+</div>

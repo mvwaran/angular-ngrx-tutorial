@@ -1,0 +1,12 @@
+<div *ngIf="dashboardStateService.selectorGetCartHttpLoading() | async">
+  Loading......
+</div>
+<div class="items">
+  <div class="item" *ngFor="let food of foods">
+    <app-food-tile [food]="food" (selectFood)="selectFood($event)" (removeFood)="removeFood($event)"
+      [isSelected]="isSelected(food.id)"></app-food-tile>
+  </div>
+</div>
+<div class="text-center">
+  <a routerLink="/dashboard/cart">Go to Cart</a>
+</div>
