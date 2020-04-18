@@ -15,16 +15,14 @@ const initialState: DashboardState = {
   getCartHttpLoading: false,
 };
 
-// Immutability approach
-
 const dashboardReducer = createReducer(
   initialState,
   on(addCart, (state, { payload }) => {
-    const cart = state.cart.concat(payload);
+    const cart = state.cart.concat(payload); // Immutability approach. Don't use push
     return { ...state, cart };
   }),
   on(getCartHttpAction, state => {
-    return { ...state, cart: [], getCartHttpLoading: true };
+    return { ...state, cart: [], getCartHttpError: null, getCartHttpLoading: true }; // see how cart is reset
   }),
   on(getCartHttpSuccessAction, (state, { payload }) => {
     const cart = state.cart.concat(payload);
@@ -34,7 +32,7 @@ const dashboardReducer = createReducer(
     return { ...state, getCartHttpError: payload, getCartHttpLoading: false };
   }),
   on(removeCart, (state, { payload }) => {
-    const cart = state.cart.filter(food => food.id !== payload);
+    const cart = state.cart.filter(food => food.id !== payload); // Immutability approach. Don't use pop
     return { ...state, cart };
   }),
   on(resetCart, state => {
